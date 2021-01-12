@@ -11,11 +11,16 @@ public class Presentador {
         this.modelo = new LoginViewModel();
     }
 
-    public void validaLoginUsuario(String pNombre, String pPassword){
+    public Boolean validaLoginUsuario(String pNombre, String pPassword){
+        Boolean loginOK =modelo.isUsuarioValido(pNombre, pPassword);
 
-        if (modelo.isUsuarioValido(pNombre, pPassword)){
+        if (loginOK){
              view.shoMessageValid();
-        }else {view.showMessageInvalid();}
+        }else {
+            view.showMessageInvalid();
+        }
+
+        return loginOK;
     }
 
 }

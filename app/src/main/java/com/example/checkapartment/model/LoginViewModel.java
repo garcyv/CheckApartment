@@ -22,7 +22,5 @@ public class LoginViewModel {
     public boolean isUsuarioValido(String nombre, String password){
 
         return isUserNameValid(nombre) && isPasswordValid(password);
-
-
     }
 }
