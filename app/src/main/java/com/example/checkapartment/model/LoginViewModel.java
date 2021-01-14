@@ -5,7 +5,7 @@ import android.util.Patterns;
 public class LoginViewModel {
 
     private boolean isPasswordValid(String password) {
-        return password != null && password.equals("123pass");
+        return password != null && password.equals("1");
     }
 
     private boolean isUserNameValid(String username) {

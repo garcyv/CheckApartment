@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+//import com.bumptech.glide.Glide;
 import com.bumptech.glide.Glide;
 import com.example.checkapartment.databinding.ItemListDataBinding;
 import com.example.checkapartment.model.Item;
@@ -34,8 +35,11 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ViewHolderite
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderitem holder, int position) {
-        holder.mdesc.setText(itemlist.get(position).getItemDescription());
-        Glide.with(holder.mimgview.getContext()).load(itemlist.get(position).getUrlImage()).into(holder.mimgview);
+        holder.mnombre.setText(itemlist.get(position).getItemnombre());
+        holder.mproy.setText(itemlist.get(position).getItemproy());
+        holder.munidad.setText(itemlist.get(position).getItemunidad());
+        holder.mdirecc.setText(itemlist.get(position).getItemdirecc());
+        Glide.with(holder.mimgview.getContext()).load(itemlist.get(position).getItemurlimg()).into(holder.mimgview);
     }
 
     @Override
@@ -44,13 +48,19 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.ViewHolderite
     }
 
     public class ViewHolderitem extends RecyclerView.ViewHolder implements View.OnClickListener{
-        public TextView mdesc;
+        public TextView mnombre;
+        public TextView  mproy;
+        public TextView  munidad;
+        public TextView  mdirecc;
         public ImageView mimgview;
 
         public ViewHolderitem(@NonNull ItemListDataBinding mbinding) {
             super(mbinding.getRoot());
-            mdesc =mbinding.tvItem;
-            mimgview = mbinding.ivItem;
+            mnombre =mbinding.tvnombre;
+            mproy = mbinding.tvproy;
+            munidad = mbinding.tvunidad;
+            mdirecc = mbinding.tvdireccion;
+            mimgview =mbinding.ivitem;
             itemView.setOnClickListener(this);
         }
 

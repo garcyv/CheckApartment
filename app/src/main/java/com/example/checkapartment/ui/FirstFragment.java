@@ -11,26 +11,25 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-
 import com.example.checkapartment.R;
-import com.example.checkapartment.model.ItemAdapter;
 import com.example.checkapartment.databinding.FragmentFirstBinding;
 import com.example.checkapartment.model.Item;
-
+import com.example.checkapartment.model.ItemAdapter;
 
 import java.util.ArrayList;
 
-public class FirstFragment extends Fragment implements ItemAdapter.PasarElemento  {
+public class FirstFragment extends Fragment implements  ItemAdapter.PasarElemento  {
     private FragmentFirstBinding mbinding;
-    ArrayList<Item>  itemlist;
-
+    ArrayList<Item> itemlist;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
+        // Inflate the layout for this fragment
         mbinding = FragmentFirstBinding.inflate(inflater,container,false);
-        return mbinding.getRoot();    }
+       return mbinding.getRoot()
+;    }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -39,49 +38,54 @@ public class FirstFragment extends Fragment implements ItemAdapter.PasarElemento
         mbinding.rvItem.setAdapter(madapter);
         mbinding.rvItem.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // NavHostFragment.findNavController(FirstFragment.this).navigate(directions);
     }
 
+/*    private ArrayList<Item> returnItemList2() {
+        ArrayList<Item> listItem = new ArrayList<>();
+        Item item01 = new Item("Zhuo Cheng you","p","d","a","https://unsplash.com/photos/UBvtBr_FmrY/download?force=true&w=640");
+        listItem.add(item01);
+        Item item02 = new Item("billow926","p","d","a","https://unsplash.com/photos/pNoP-qVwBFQ/download?force=true&w=640");
+        listItem.add(item02);
+        Item item03 = new Item("Philipp Deiß","p","d","a","https://unsplash.com/photos/LfJx0gqqiEc/download?force=true&w=640");
+        listItem.add(item03);
 
-    //Generamos un listado de datos del tipo Item.
+        return listItem;
+    }*/
+
     private ArrayList<Item> returnItemList() {
         ArrayList<Item> listItem = new ArrayList<>();
-        Item item01 = new Item("Zhuo Cheng you","https://unsplash.com/photos/UBvtBr_FmrY/download?force=true&w=640");
-        listItem.add(item01);
-        Item item02 = new Item("billow926","https://unsplash.com/photos/pNoP-qVwBFQ/download?force=true&w=640");
-        listItem.add(item02);
-        Item item03 = new Item("Philipp Deiß","https://unsplash.com/photos/LfJx0gqqiEc/download?force=true&w=640");
-        listItem.add(item03);
-        Item item04 = new Item("Huper by Joshua Earle","https://unsplash.com/photos/_p8gVNNsWw4/download?force=true&w=640");
-        listItem.add(item04);
-        Item item05 = new Item("Melnychuk Nataliya","https://unsplash.com/photos/rnPGCe7LsQo/download?force=true&w=640");
-        listItem.add(item05);
-        Item item06 = new Item("Teagan Maddux","https://unsplash.com/photos/k2DbTXQ0yrQ/download?force=true&w=640");
-        listItem.add(item06);
-        Item item07 = new Item("Chen Liu","https://unsplash.com/photos/kZH8X0q4Nvo/download?force=true&w=640");
-        listItem.add(item07);
-        Item item08 = new Item("John Fornander","https://unsplash.com/photos/iNqJx-VOceI/download?force=true&w=640");
-        listItem.add(item08);
-        Item item09 = new Item("Parker Coffman","https://unsplash.com/photos/mNWrQ9O6KZw/download?force=true&w=640");
-        listItem.add(item09);
-        Item item10 = new Item("XPS","https://unsplash.com/photos/8pb7Hq539Zw/download?force=true&w=640");
-        listItem.add(item10);
-        Item item11 = new Item("Daniel J. Schwarz","https://unsplash.com/photos/l8BvDmt8Ac4/download?force=true&w=640");
-        listItem.add(item11);
-        Item item12 = new Item("Wesley Armstrong","https://unsplash.com/photos/q0wqYpyWDpc/download?force=true&w=640");
-        listItem.add(item12);
+        Item apartment01 = new Item("Edificio Almendro","Torre 1", "depto 2002"," san jose 345 La florida  Santiago", "https://unsplash.com/photos/Ub9LkIWxyec/download?force=true&w=640");
+        Item apartment02 = new Item("Edificio Almendro","Torre 1", "depto 2003", "san jose 345, La florida, Santiago", "https://unsplash.com/photos/Ub9LkIWxyec/download?force=true&w=640");
+        Item apartment03 = new Item("Edificio Almendro","Torre 1", "depto 1601"," san jose 345, La florida, Santiago", "https://unsplash.com/photos/Ub9LkIWxyec/download?force=true&w=640");
+        Item apartment04 = new Item("Edificio Alerces","Torre b", "depto 1602", "nueva providencia 1801, Providencia", "https://unsplash.com/photos/PhYq704ffdA/download?force=true&w=640");
+        Item apartment05 = new Item("Edificio Alerces","Torre b", "depto 1801", "nueva providencia 1801, Providencia", "https://unsplash.com/photos/PhYq704ffdA/download?force=true&w=640");
+
+        listItem.add(apartment01);
+        listItem.add(apartment02);
+        listItem.add(apartment03);
+        listItem.add(apartment04);
+        listItem.add(apartment05);
+
         return listItem;
     }
-
     @Override
     public void passElement(Item elemento) {
         Bundle bundle = new Bundle();
-        String descr = elemento.getItemDescription();
-        String urlimg = elemento.getUrlImage();
-        bundle.putString("descr" ,descr);
+        String nombre = elemento.getItemnombre();
+        String proyecto = elemento.getItemproy();
+        String unidad = elemento.getItemunidad();
+        String direcc = elemento.getItemdirecc();
+        String urlimg = elemento.getItemurlimg();
+
+        bundle.putString("nombre" ,nombre);
+        bundle.putString("proyecto" ,proyecto);
+        bundle.putString("unidad" ,unidad);
+        bundle.putString("direcc" ,direcc);
         bundle.putString("urlimg" ,urlimg);
 
         Navigation.findNavController(mbinding.getRoot())
                 .navigate(R.id.action_FirstFragment_to_SecondFragment,bundle);
     }
+
+
 }

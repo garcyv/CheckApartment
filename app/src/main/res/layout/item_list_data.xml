@@ -9,24 +9,77 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp">
+
         <ImageView
-            android:id="@+id/iv_item"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:id="@+id/ivitem"
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="2dp"
             android:contentDescription="image_from_internet"
             android:padding="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
         <TextView
-            android:id="@+id/tv_item"
+            android:id="@+id/tvnombre"
+            android:layout_width="124dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="6dp"
+            android:text="text View"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/tvproy"
+            android:layout_width="124dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="3dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvnombre" />
+
+        <TextView
+            android:id="@+id/tvunidad"
+            android:layout_width="124dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="3dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvproy" />
+
+        <TextView
+            android:id="@+id/tvdireccion"
+            android:layout_width="160dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="3dp"
+            android:text="TextView"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/tvunidad" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title_image"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_item"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="140dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="3dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>
